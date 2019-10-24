@@ -1,4 +1,8 @@
+matplotlib : 결과를 보여주기 위해 사용
+pytesseract : 이미지에서 글자를 불러오기 위해 사용
+
 <numpy, matplotlib 설치 확인>
+
 *참고 링크: http://blog.naver.com/PostView.nhn?blogId=mail1001&logNo=220629453977
 1) cmd창 열고, python 치기
 2) Numpy 확인
@@ -10,3 +14,6 @@
 < pytesseract 설치 >
 *참고 링크: https://github.com/sonwonrak92/ocr_test
 conda install -c conda-forge pytesseract
+
+tesseract oem 0 : 문자 그대로 인식하는 버전
+=> 설치 링크: https://github.com/tesseract-ocr/tessdata/blob/master/kor.traineddata
