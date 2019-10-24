@@ -1,0 +1,12 @@
+<numpy, matplotlib 설치 확인>
+*참고 링크: http://blog.naver.com/PostView.nhn?blogId=mail1001&logNo=220629453977
+1) cmd창 열고, python 치기
+2) Numpy 확인
+- from numpy import *
+- random.rand(2,2)
+3) matplotlib 확인
+- import matplotlib
+
+< pytesseract 설치 >
+*참고 링크: https://github.com/sonwonrak92/ocr_test
+conda install -c conda-forge pytesseract
