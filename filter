@@ -26,8 +26,8 @@ erosion=cv2.erode(img, kernel, iterations=1)
 
 *pytesseract  (아나콘다에서 지원 안하는것 같다는 글이...)
 tessaract 파이썬 설치
-conda install pillow
-conda install pytesseract
+pip install pillow
+pip install pytesseract
  참고 : https://niceman.tistory.com/157
  
  https://m.blog.naver.com/samsjang/220694855018
