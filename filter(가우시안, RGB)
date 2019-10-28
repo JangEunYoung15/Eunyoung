@@ -1,0 +1,30 @@
+번호판의 글자에 윤곽선을 잡아주기 위해 OpenCV라이브러리를 이용하여 원본 이미지에 전처리 과정을 해주는 것이 필요함
+RGB색상 공간으로 볼때, 컬러 이미지의 모든 색은 R(빨간색)+G(녹색)+B(파랑색)의 색깔을 조합해 표현.
+3가지 색상값을 1/3로 나누어 주거나 R,G,B 중 하나의 값만으로 표현하면 Gray 이미지로 표현 할 수 있음
+
+[코드-gray 이미지 얻기]
+
+# hsv = cv2.cvtColor(img_ori, cv2.COLOR_BGR2HSV)
+# gray = hsv[:,:,2]
+gray = cv2.cvtColor(img_ori, cv2.COLOR_BGR2GRAY)//이미지 색상을 컬러->그레이로 변경
+
+plt.figure(figsize=(12, 10)) 
+plt.imshow(gray, cmap='gray')
+
+[코드-가우시안 Blur필터&threshold 적용]
+-가우시안 Blur필터와 threshold를 같이 사용함으로써 노이즈를 없애고, 
+이미지를 흰색과 검은색으로 구분해서 번호판을 더 잘 찾을 수 있게 도와줌
+
+img_blurred = cv2.GaussianBlur(gray, ksize=(5, 5), sigmaX=0)
+
+img_thresh = cv2.adaptiveThreshold(
+    img_blurred, 
+    maxValue=255.0, 
+    adaptiveMethod=cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
+    thresholdType=cv2.THRESH_BINARY_INV, 
+    blockSize=19, 
+    C=9
+)
+
+plt.figure(figsize=(12, 10))
+plt.imshow(img_thresh, cmap='gray')
